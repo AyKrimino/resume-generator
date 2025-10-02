@@ -1,34 +1,61 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [linkedinUrl, setLinkedinUrl] = useState("");
+  const [githubUrl, setGithubUrl] = useState("");
+
   return (
     <main className="p-6">
       <h1 className="text-2xl font-bold mb-6">Resume Generator</h1>
       <form className="w-full md:w-1/2 p-6 border rounded-lg">
         <input
           type="text"
-          placeholder="name"
+          placeholder="Name"
           className="mb-4 w-full p-2 border rounded"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
-          placeholder="email"
+          placeholder="Email"
           className="mb-4 w-full p-2 border rounded"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="tel"
-          placeholder="telephone"
+          placeholder="Phone"
           className="mb-4 w-full p-2 border rounded"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
         <input
           type="url"
-          placeholder="linkedin url"
+          placeholder="Linkedin URL"
           className="mb-4 w-full p-2 border rounded"
+          value={linkedinUrl}
+          onChange={(e) => setLinkedinUrl(e.target.value)}
         />
         <input
           type="url"
-          placeholder="github"
+          placeholder="Github URL"
           className="mb-4 w-full p-2 border rounded"
+          value={githubUrl}
+          onChange={(e) => setGithubUrl(e.target.value)}
         />
       </form>
+      <div className="">
+        Name: {name}
+        Email: {email}
+        Phone: {phone}
+        LinkedinURL: {linkedinUrl}
+        GithubURL: {githubUrl}
+      </div>
     </main>
   );
 }
