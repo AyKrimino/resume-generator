@@ -1,7 +1,8 @@
 "use client";
 
 import ResumePreview from "@/components/ResumePreview";
-import { useState } from "react";
+import { downloadFile } from "@/utils/downloadFile";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -9,6 +10,24 @@ export default function Home() {
   const [phone, setPhone] = useState("");
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
+
+  const previewRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadHtmlClick = () => {
+    const htmlContent = previewRef.current.innerHTML;
+    downloadFile(htmlContent, "resume.html", "text/html");
+  };
+
+  const handleDownloadMarkdownClick = () => {
+    const markdownContent = `# ${name || "Resume"}
+
+Email: ${email}
+Phone: ${phone}
+${linkedinUrl ? `[LinkedIn](${linkedinUrl})` : ""}
+${githubUrl ? `[GitHub](${githubUrl})` : ""}
+`.trim();
+    downloadFile(markdownContent, "resume.md", "text/markdown");
+  };
 
   return (
     <main className="p-6">
@@ -51,13 +70,34 @@ export default function Home() {
             onChange={(e) => setGithubUrl(e.target.value)}
           />
         </form>
-        <ResumePreview
-          name={name}
-          email={email}
-          phone={phone}
-          linkedinUrl={linkedinUrl}
-          githubUrl={githubUrl}
-        />
+        <div
+          ref={previewRef}
+          className="w-full md:w-1/2 p-6 border rounded-lg ml-4"
+        >
+          <ResumePreview
+            name={name}
+            email={email}
+            phone={phone}
+            linkedinUrl={linkedinUrl}
+            githubUrl={githubUrl}
+          />
+        </div>
+      </div>
+      <div className="mt-4">
+        <button
+          type="button"
+          onClick={handleDownloadHtmlClick}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+        >
+          Download HTML
+        </button>
+        <button
+          type="button"
+          onClick={handleDownloadMarkdownClick}
+          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-2 cursor-pointer"
+        >
+          Download Markdown
+        </button>
       </div>
     </main>
   );
