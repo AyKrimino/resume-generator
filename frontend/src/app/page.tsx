@@ -1,8 +1,10 @@
 "use client";
 
 import ResumePreview from "@/components/ResumePreview";
+import apiClient from "@/lib/axios";
 import { downloadFile } from "@/utils/downloadFile";
 import { useRef, useState } from "react";
+import { blob } from "stream/consumers";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -27,6 +29,23 @@ ${linkedinUrl ? `[LinkedIn](${linkedinUrl})` : ""}
 ${githubUrl ? `[GitHub](${githubUrl})` : ""}
 `.trim();
     downloadFile(markdownContent, "resume.md", "text/markdown");
+  };
+
+  const handleDownloadPDFClick = async () => {
+    const htmlContent = previewRef.current.innerHTML;
+
+    try {
+      const response = await apiClient.post(
+        "/generate-pdf",
+        { htmlContent },
+        { responseType: "blob" }
+      );
+      const pdfContent = response.data;
+      downloadFile(pdfContent, "resume.pdf", "text/pdf");
+    } catch (error) {
+      console.log(`Failed to generate pdf ${error}`);
+      throw error;
+    }
   };
 
   return (
@@ -97,6 +116,13 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
           className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-2 cursor-pointer"
         >
           Download Markdown
+        </button>
+        <button
+          type="button"
+          onClick={handleDownloadPDFClick}
+          className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 ml-2 cursor-pointer"
+        >
+          Download PDF
         </button>
       </div>
     </main>
