@@ -4,7 +4,6 @@ import ResumePreview from "@/components/ResumePreview";
 import apiClient from "@/lib/axios";
 import { downloadFile } from "@/utils/downloadFile";
 import { useRef, useState } from "react";
-import { blob } from "stream/consumers";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -16,7 +15,8 @@ export default function Home() {
   const previewRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadHtmlClick = () => {
-    const htmlContent = previewRef.current.innerHTML;
+    const htmlContent = previewRef.current?.innerHTML;
+    if (!htmlContent) return;
     downloadFile(htmlContent, "resume.html", "text/html");
   };
 
@@ -32,7 +32,8 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
   };
 
   const handleDownloadPDFClick = async () => {
-    const htmlContent = previewRef.current.innerHTML;
+    const htmlContent = previewRef.current?.innerHTML;
+    if (!htmlContent) return;
 
     try {
       const response = await apiClient.post(
@@ -41,7 +42,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
         { responseType: "blob" }
       );
       const pdfContent = response.data;
-      downloadFile(pdfContent, "resume.pdf", "text/pdf");
+      downloadFile(pdfContent, "resume.pdf", "application/pdf");
     } catch (error) {
       console.log(`Failed to generate pdf ${error}`);
       throw error;
