@@ -54,7 +54,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl font-bold mb-6">Resume Generator</h1>
         <div className="flex flex-col lg:flex-row gap-8">
-          <form className="w-full sm:w-1/2 p-6 border rounded-lg">
+          <form className="w-full sm:w-1/2 p-6 space-y-6 border rounded-lg">
             <section className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
               <h1 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">
                 Personal Informations
@@ -121,6 +121,12 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
                   />
                 </div>
               </div>
+            </section>
+            <section className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <h1 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">
+                Professional Summary
+              </h1>
+              <textarea className="w-full px-4 py-3 border border-gray-300 rounded-lg h-32 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
             </section>
           </form>
           <div
