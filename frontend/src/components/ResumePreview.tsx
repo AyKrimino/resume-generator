@@ -53,6 +53,28 @@ const ResumePreview = ({
           <p className="text-gray-700 leading-relaxed">{summary}</p>
         </section>
       )}
+
+      {educationItems.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
+            Education
+          </h2>
+          {educationItems.map((item, index) => (
+            <div key={index} className="mb-6 last:mb-0">
+              <h3 className="text-xl font-medium text-gray-900">
+                {item.degree} in {item.field}
+              </h3>
+              <p className="font-medium text-gray-700">{item.school}</p>
+              <p className="text-gray-600">
+                {item.startDate} - {item.endDate}
+              </p>
+              {item.description && (
+                <p className="mt-2 text-gray-700">{item.description}</p>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
     </div>
   );
 };
