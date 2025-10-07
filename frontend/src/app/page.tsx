@@ -1,6 +1,7 @@
 "use client";
 
 import EducationSection from "@/components/EducationSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import PersonalInformationsSection from "@/components/PersonalInformationsSection";
 import ResumePreview from "@/components/ResumePreview";
 import SummarySection from "@/components/SummarySection";
@@ -22,6 +23,16 @@ export default function Home() {
       school: "",
       degree: "",
       field: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
+  ]);
+
+  const [experienceItems, setExperienceItems] = useState([
+    {
+      company: "",
+      title: "",
       startDate: "",
       endDate: "",
       description: "",
@@ -87,6 +98,10 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
             <EducationSection
               educationItems={educationItems}
               setEducationItems={setEducationItems}
+            />
+            <ExperienceSection
+              experienceItems={experienceItems}
+              setExperienceItems={setExperienceItems}
             />
           </form>
           <div
