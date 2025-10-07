@@ -104,7 +104,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl font-bold mb-6">Resume Generator</h1>
         <div className="flex flex-col lg:flex-row gap-8">
-          <form className="w-full sm:w-1/2 p-6 space-y-6 border rounded-lg">
+          <form className="flex-[1] w-full lg:w-1/2 p-2 sm:p-4 space-y-6">
             <PersonalInformationsSection
               name={name}
               email={email}
@@ -138,7 +138,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
           </form>
           <div
             ref={previewRef}
-            className="w-full md:w-1/2 p-6 border rounded-lg ml-4"
+            className="flex-[1.5] w-full lg:w-1/2 p-2 sm:p-4"
           >
             <ResumePreview
               name={name}
@@ -147,6 +147,11 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
               summary={summary}
+              educationItems={educationItems}
+              experienceItems={experienceItems}
+              skills={skills}
+              projectItems={projectItems}
+              certificateItems={certificateItems}
             />
           </div>
         </div>

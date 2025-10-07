@@ -79,4 +79,9 @@ export type ResumePreviewProps = {
   linkedinUrl: string;
   githubUrl: string;
   summary: string;
+  educationItems: EducationItem[];
+  experienceItems: ExperienceItem[];
+  skills: string;
+  projectItems: ProjectItem[];
+  certificateItems: CertificateItem[];
 };
