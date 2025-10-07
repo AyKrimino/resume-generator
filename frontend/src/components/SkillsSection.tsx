@@ -1,7 +1,4 @@
-type SkillsSectionProps = {
-  skills: string;
-  setSkills: (skills: string) => void;
-};
+import { SkillsSectionProps } from "@/types/resume";
 
 const SkillsSection = ({ skills, setSkills }: SkillsSectionProps) => {
   return (

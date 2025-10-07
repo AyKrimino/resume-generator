@@ -1,15 +1,4 @@
-type EducationItem = {
-  school: string;
-  degree: string;
-  field: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-};
-type EducationSectionProps = {
-  educationItems: EducationItem[];
-  setEducationItems: (educationItems: EducationItem[]) => void;
-};
+import { EducationSectionProps } from "@/types/resume";
 
 const EducationSection = ({
   educationItems,

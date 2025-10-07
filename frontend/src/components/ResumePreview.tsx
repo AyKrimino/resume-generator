@@ -1,22 +1,13 @@
-import { FC } from "react";
+import { ResumePreviewProps } from "@/types/resume";
 
-interface ResumePreviewProps {
-  name: string;
-  email: string;
-  phone: string;
-  linkedinUrl: string;
-  githubUrl: string;
-  summary: string;
-}
-
-const ResumePreview: FC<ResumePreviewProps> = ({
+const ResumePreview = ({
   name,
   email,
   phone,
   linkedinUrl,
   githubUrl,
   summary,
-}) => {
+}: ResumePreviewProps) => {
   return (
     <div>
       <h1>{name}</h1>

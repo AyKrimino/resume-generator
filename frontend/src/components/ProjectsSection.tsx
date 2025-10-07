@@ -1,14 +1,4 @@
-type ProjectItem = {
-  name: string;
-  description: string;
-  technologies: string;
-  link: string;
-};
-
-type ProjectSectionProps = {
-  projectItems: ProjectItem[];
-  setProjectItems: (projectItems: ProjectItem[]) => void;
-};
+import { ProjectSectionProps } from "@/types/resume";
 
 const ProjectSection = ({
   projectItems,

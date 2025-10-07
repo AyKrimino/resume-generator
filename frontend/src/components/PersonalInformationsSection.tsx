@@ -1,15 +1,4 @@
-type PersonalInformationsSectionProps = {
-  name: string;
-  email: string;
-  phone: string;
-  linkedinUrl: string;
-  githubUrl: string;
-  setName: (name: string) => void;
-  setEmail: (email: string) => void;
-  setPhone: (phone: string) => void;
-  setLinkedinUrl: (linkedinUrl: string) => void;
-  setGithubUrl: (githubUrl: string) => void;
-};
+import { PersonalInformationsSectionProps } from "@/types/resume";
 
 const PersonalInformationsSection = ({
   name,

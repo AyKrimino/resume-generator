@@ -1,13 +1,4 @@
-type CertificateItem = {
-  name: string;
-  issuer: string;
-  date: string;
-  description: string;
-};
-type CertificationsSectionProps = {
-  certificateItems: CertificateItem[];
-  setCertificateItems: (certificateItems: CertificateItem[]) => void;
-};
+import { CertificationsSectionProps } from "@/types/resume";
 
 const CertificationsSection = ({
   certificateItems,

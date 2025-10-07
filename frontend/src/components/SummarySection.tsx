@@ -1,7 +1,4 @@
-type SummarySectionProps = {
-  summary: string;
-  setSummary: (summary: string) => void;
-};
+import { SummarySectionProps } from "@/types/resume";
 
 const SummarySection = ({ summary, setSummary }: SummarySectionProps) => {
   return (

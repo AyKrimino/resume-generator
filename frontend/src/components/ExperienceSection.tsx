@@ -1,15 +1,4 @@
-type ExperienceItem = {
-  company: string;
-  title: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-};
-
-type ExperienceSectionProps = {
-  experienceItems: ExperienceItem[];
-  setExperienceItems: (experienceItems: ExperienceItem[]) => void;
-};
+import { ExperienceSectionProps } from "@/types/resume";
 
 const ExperienceSection = ({
   experienceItems,
