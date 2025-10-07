@@ -4,6 +4,7 @@ import EducationSection from "@/components/EducationSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import PersonalInformationsSection from "@/components/PersonalInformationsSection";
 import ResumePreview from "@/components/ResumePreview";
+import SkillsSection from "@/components/SkillsSection";
 import SummarySection from "@/components/SummarySection";
 import apiClient from "@/lib/axios";
 import { downloadFile } from "@/utils/downloadFile";
@@ -28,6 +29,8 @@ export default function Home() {
       description: "",
     },
   ]);
+
+  const [skills, setSkills] = useState("");
 
   const [experienceItems, setExperienceItems] = useState([
     {
@@ -103,6 +106,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
               experienceItems={experienceItems}
               setExperienceItems={setExperienceItems}
             />
+            <SkillsSection skills={skills} setSkills={setSkills} />
           </form>
           <div
             ref={previewRef}
