@@ -3,6 +3,7 @@
 import EducationSection from "@/components/EducationSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import PersonalInformationsSection from "@/components/PersonalInformationsSection";
+import ProjectSection from "@/components/ProjectsSection";
 import ResumePreview from "@/components/ResumePreview";
 import SkillsSection from "@/components/SkillsSection";
 import SummarySection from "@/components/SummarySection";
@@ -30,8 +31,6 @@ export default function Home() {
     },
   ]);
 
-  const [skills, setSkills] = useState("");
-
   const [experienceItems, setExperienceItems] = useState([
     {
       company: "",
@@ -39,6 +38,17 @@ export default function Home() {
       startDate: "",
       endDate: "",
       description: "",
+    },
+  ]);
+
+  const [skills, setSkills] = useState("");
+
+  const [projectItems, setProjectItems] = useState([
+    {
+      name: "",
+      description: "",
+      technologies: "",
+      link: "",
     },
   ]);
 
@@ -107,6 +117,10 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
               setExperienceItems={setExperienceItems}
             />
             <SkillsSection skills={skills} setSkills={setSkills} />
+            <ProjectSection
+              projectItems={projectItems}
+              setProjectItems={setProjectItems}
+            />
           </form>
           <div
             ref={previewRef}
