@@ -1,13 +1,13 @@
 self.__BUILD_MANIFEST = {
   "/_error": [
-    "./static/chunks/26c69064d61233e7.js"
+    "./static/chunks/df8f46b66295e364.js"
   ],
   "__rewrites": {
     "afterFiles": [],
     "beforeFiles": [
       {
-        "source": "/${repo}//_next/:path+",
-        "destination": "/${repo}/_next/:path+"
+        "source": "/resume-generator//_next/:path+",
+        "destination": "/resume-generator/_next/:path+"
       }
     ],
     "fallback": []
