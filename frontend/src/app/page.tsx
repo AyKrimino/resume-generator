@@ -1,5 +1,6 @@
 "use client";
 
+import CertificationsSection from "@/components/CertificationsSection";
 import EducationSection from "@/components/EducationSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import PersonalInformationsSection from "@/components/PersonalInformationsSection";
@@ -49,6 +50,15 @@ export default function Home() {
       description: "",
       technologies: "",
       link: "",
+    },
+  ]);
+
+  const [certificateItems, setCertificateItems] = useState([
+    {
+      name: "",
+      issuer: "",
+      date: "",
+      description: "",
     },
   ]);
 
@@ -120,6 +130,10 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
             <ProjectSection
               projectItems={projectItems}
               setProjectItems={setProjectItems}
+            />
+            <CertificationsSection
+              certificateItems={certificateItems}
+              setCertificateItems={setCertificateItems}
             />
           </form>
           <div
