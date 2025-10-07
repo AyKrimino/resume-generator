@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
 
+const repo = "resume-generator";
+const isGhActions = process.env.GITHUB_ACTIONS === "true";
+
 const nextConfig: NextConfig = {
   output: "export",
-  assetPrefix: process.env.GITHUB_ACTIONS ? "/resume-generator/" : "./",
+  basePath: isGhActions ? "/${repo}" : "",
+  assetPrefix: isGhActions ? "/${repo}/" : "",
+  trailingSlash: true,
 };
 
 export default nextConfig;

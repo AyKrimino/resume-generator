@@ -50,81 +50,115 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
   };
 
   return (
-    <main className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Resume Generator</h1>
-      <div className="flex justify-between">
-        <form className="w-full md:w-1/2 p-6 border rounded-lg">
-          <input
-            type="text"
-            placeholder="Name"
-            className="mb-4 w-full p-2 border rounded"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="mb-4 w-full p-2 border rounded"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="tel"
-            placeholder="Phone"
-            className="mb-4 w-full p-2 border rounded"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-          <input
-            type="url"
-            placeholder="Linkedin URL"
-            className="mb-4 w-full p-2 border rounded"
-            value={linkedinUrl}
-            onChange={(e) => setLinkedinUrl(e.target.value)}
-          />
-          <input
-            type="url"
-            placeholder="Github URL"
-            className="mb-4 w-full p-2 border rounded"
-            value={githubUrl}
-            onChange={(e) => setGithubUrl(e.target.value)}
-          />
-        </form>
-        <div
-          ref={previewRef}
-          className="w-full md:w-1/2 p-6 border rounded-lg ml-4"
-        >
-          <ResumePreview
-            name={name}
-            email={email}
-            phone={phone}
-            linkedinUrl={linkedinUrl}
-            githubUrl={githubUrl}
-          />
+    <main className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-2xl font-bold mb-6">Resume Generator</h1>
+        <div className="flex flex-col lg:flex-row gap-8">
+          <form className="w-full sm:w-1/2 p-6 border rounded-lg">
+            <section className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <h1 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">
+                Personal Informations
+              </h1>
+              <div className="space-y-1">
+                <div className="">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className="">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
+                <div className="">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Linkedin URL
+                  </label>
+                  <input
+                    type="url"
+                    placeholder="Linkedin URL"
+                    className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                    value={linkedinUrl}
+                    onChange={(e) => setLinkedinUrl(e.target.value)}
+                  />
+                </div>
+                <div className="">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Github URL
+                  </label>
+                  <input
+                    type="url"
+                    placeholder="Github URL"
+                    className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                    value={githubUrl}
+                    onChange={(e) => setGithubUrl(e.target.value)}
+                  />
+                </div>
+              </div>
+            </section>
+          </form>
+          <div
+            ref={previewRef}
+            className="w-full md:w-1/2 p-6 border rounded-lg ml-4"
+          >
+            <ResumePreview
+              name={name}
+              email={email}
+              phone={phone}
+              linkedinUrl={linkedinUrl}
+              githubUrl={githubUrl}
+            />
+          </div>
         </div>
-      </div>
-      <div className="mt-4">
-        <button
-          type="button"
-          onClick={handleDownloadHtmlClick}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
-        >
-          Download HTML
-        </button>
-        <button
-          type="button"
-          onClick={handleDownloadMarkdownClick}
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-2 cursor-pointer"
-        >
-          Download Markdown
-        </button>
-        <button
-          type="button"
-          onClick={handleDownloadPDFClick}
-          className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 ml-2 cursor-pointer"
-        >
-          Download PDF
-        </button>
+        <div className="mt-4">
+          <button
+            type="button"
+            onClick={handleDownloadHtmlClick}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+          >
+            Download HTML
+          </button>
+          <button
+            type="button"
+            onClick={handleDownloadMarkdownClick}
+            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-2 cursor-pointer"
+          >
+            Download Markdown
+          </button>
+          <button
+            type="button"
+            onClick={handleDownloadPDFClick}
+            className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 ml-2 cursor-pointer"
+          >
+            Download PDF
+          </button>
+        </div>
       </div>
     </main>
   );

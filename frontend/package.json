@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://AyKrimino.github.io/resume-generator",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
