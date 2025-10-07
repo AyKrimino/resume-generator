@@ -1,5 +1,6 @@
 "use client";
 
+import EducationSection from "@/components/EducationSection";
 import PersonalInformationsSection from "@/components/PersonalInformationsSection";
 import ResumePreview from "@/components/ResumePreview";
 import SummarySection from "@/components/SummarySection";
@@ -15,6 +16,17 @@ export default function Home() {
   const [githubUrl, setGithubUrl] = useState("");
 
   const [summary, setSummary] = useState("");
+
+  const [educationItems, setEducationItems] = useState([
+    {
+      school: "",
+      degree: "",
+      field: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
+  ]);
 
   const previewRef = useRef<HTMLDivElement>(null);
 
@@ -72,6 +84,10 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
               setGithubUrl={setGithubUrl}
             />
             <SummarySection summary={summary} setSummary={setSummary} />
+            <EducationSection
+              educationItems={educationItems}
+              setEducationItems={setEducationItems}
+            />
           </form>
           <div
             ref={previewRef}
