@@ -39,9 +39,11 @@ const ExperienceSection = ({
   };
 
   const removeExperienceItem = (index: number) => {
-    const updatedItems = [...experienceItems];
-    updatedItems.splice(index, 1);
-    setExperienceItems(updatedItems);
+    if (experienceItems.length > 1) {
+      const updatedItems = [...experienceItems];
+      updatedItems.splice(index, 1);
+      setExperienceItems(updatedItems);
+    }
   };
 
   return (

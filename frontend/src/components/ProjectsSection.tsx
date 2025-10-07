@@ -33,9 +33,11 @@ const ProjectSection = ({
   };
 
   const removeProjectItem = (index: number) => {
-    const updatedItems = [...projectItems];
-    updatedItems.splice(index, 1);
-    setProjectItems(updatedItems);
+    if (projectItems.length > 1) {
+      const updatedItems = [...projectItems];
+      updatedItems.splice(index, 1);
+      setProjectItems(updatedItems);
+    }
   };
 
   return (

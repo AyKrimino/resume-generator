@@ -36,9 +36,11 @@ const EducationSection = ({
   };
 
   const removeEducationItem = (index: number) => {
-    const updatedItems = [...educationItems];
-    updatedItems.splice(index, 1);
-    setEducationItems(updatedItems);
+    if (educationItems.length > 1) {
+      const updatedItems = [...educationItems];
+      updatedItems.splice(index, 1);
+      setEducationItems(updatedItems);
+    }
   };
 
   return (
