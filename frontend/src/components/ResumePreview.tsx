@@ -44,6 +44,15 @@ const ResumePreview = ({
           )}
         </div>
       </header>
+
+      {summary && (
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
+            Professional Summary
+          </h2>
+          <p className="text-gray-700 leading-relaxed">{summary}</p>
+        </section>
+      )}
     </div>
   );
 };
