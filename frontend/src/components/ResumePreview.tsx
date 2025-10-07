@@ -6,6 +6,7 @@ interface ResumePreviewProps {
   phone: string;
   linkedinUrl: string;
   githubUrl: string;
+  summary: string;
 }
 
 const ResumePreview: FC<ResumePreviewProps> = ({
@@ -14,6 +15,7 @@ const ResumePreview: FC<ResumePreviewProps> = ({
   phone,
   linkedinUrl,
   githubUrl,
+  summary,
 }) => {
   return (
     <div>
@@ -26,6 +28,7 @@ const ResumePreview: FC<ResumePreviewProps> = ({
       <p>
         <a href={githubUrl}>{githubUrl}</a>
       </p>
+      <p>{summary}</p>
     </div>
   );
 };

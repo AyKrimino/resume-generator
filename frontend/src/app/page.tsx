@@ -12,6 +12,8 @@ export default function Home() {
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
 
+  const [summary, setSummary] = useState("");
+
   const previewRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadHtmlClick = () => {
@@ -66,7 +68,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
                   </label>
                   <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="John Doe"
                     className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -78,7 +80,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
                   </label>
                   <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="john.doe@example.com"
                     className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -90,7 +92,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
                   </label>
                   <input
                     type="tel"
-                    placeholder="Phone"
+                    placeholder="+216 55-555-555"
                     className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -102,7 +104,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
                   </label>
                   <input
                     type="url"
-                    placeholder="Linkedin URL"
+                    placeholder="https://linkedin.com/in/yourprofile"
                     className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
                     value={linkedinUrl}
                     onChange={(e) => setLinkedinUrl(e.target.value)}
@@ -114,7 +116,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
                   </label>
                   <input
                     type="url"
-                    placeholder="Github URL"
+                    placeholder="https://github.com/yourusername"
                     className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
                     value={githubUrl}
                     onChange={(e) => setGithubUrl(e.target.value)}
@@ -126,7 +128,12 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
               <h1 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">
                 Professional Summary
               </h1>
-              <textarea className="w-full px-4 py-3 border border-gray-300 rounded-lg h-32 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+              <textarea
+                value={summary}
+                placeholder="A brief professional summary highlighting your key skills, experience, and career goals..."
+                onChange={(e) => setSummary(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg h-32 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              ></textarea>
             </section>
           </form>
           <div
@@ -139,6 +146,7 @@ ${githubUrl ? `[GitHub](${githubUrl})` : ""}
               phone={phone}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
+              summary={summary}
             />
           </div>
         </div>
