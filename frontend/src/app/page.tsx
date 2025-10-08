@@ -9,6 +9,7 @@ import ResumePreview from "@/components/ResumePreview";
 import SkillsSection from "@/components/SkillsSection";
 import SummarySection from "@/components/SummarySection";
 import apiClient from "@/lib/axios";
+import { buildFullHtml, getStylesheetUrls } from "@/utils/buildHtmlFile";
 import { downloadFile } from "@/utils/downloadFile";
 import { useRef, useState } from "react";
 
@@ -64,10 +65,13 @@ export default function Home() {
 
   const previewRef = useRef<HTMLDivElement>(null);
 
-  const handleDownloadHtmlClick = () => {
-    const htmlContent = previewRef.current?.innerHTML;
-    if (!htmlContent) return;
-    downloadFile(htmlContent, "resume.html", "text/html");
+  const handleDownloadHtmlClick = async () => {
+    const innerHTML = previewRef.current?.innerHTML;
+    if (!innerHTML) return;
+
+    const cssUrls = getStylesheetUrls();
+    const fullHtml = await buildFullHtml(innerHTML, cssUrls);
+    downloadFile(fullHtml, "resume.html", "text/html");
   };
 
   const handleDownloadMarkdownClick = () => {
@@ -131,17 +135,19 @@ ${certificateItems
   };
 
   const handleDownloadPDFClick = async () => {
-    const htmlContent = previewRef.current?.innerHTML;
-    if (!htmlContent) return;
+    const innerHTML = previewRef.current?.innerHTML;
+    if (!innerHTML) return;
+
+    const cssUrls = getStylesheetUrls();
+    const fullHtml = await buildFullHtml(innerHTML, cssUrls);
 
     try {
       const response = await apiClient.post(
         "/generate-pdf",
-        { htmlContent },
+        { htmlContent: fullHtml },
         { responseType: "blob" }
       );
-      const pdfContent = response.data;
-      downloadFile(pdfContent, "resume.pdf", "application/pdf");
+      downloadFile(response.data, "resume.pdf", "application/pdf");
     } catch (error) {
       console.log(`Failed to generate pdf ${error}`);
       throw error;
