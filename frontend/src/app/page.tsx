@@ -71,12 +71,61 @@ export default function Home() {
   };
 
   const handleDownloadMarkdownClick = () => {
-    const markdownContent = `# ${name || "Resume"}
+    const markdownContent = `
+# ${name || "Resume"}
 
-Email: ${email}
-Phone: ${phone}
-${linkedinUrl ? `[LinkedIn](${linkedinUrl})` : ""}
-${githubUrl ? `[GitHub](${githubUrl})` : ""}
+## Personal Information
+- Email: ${email}
+- Phone: ${phone}
+${linkedinUrl ? `- LinkedIn: [LinkedIn](${linkedinUrl})` : ""}
+${githubUrl ? `- GitHub: [GitHub](${githubUrl})` : ""}
+
+## Summary
+${summary || "No summary provided"}
+
+## Education
+${educationItems
+  .map(
+    (item, index) =>
+      `### ${index + 1}. ${item.degree} in ${item.field} at ${item.school}\n` +
+      `${item.startDate} - ${item.endDate}\n` +
+      `${item.description ? `Description: ${item.description}\n` : ""}`
+  )
+  .join("\n\n")}
+
+## Experience
+${experienceItems
+  .map(
+    (item, index) =>
+      `### ${index + 1}. ${item.title} at ${item.company}\n` +
+      `${item.startDate} - ${item.endDate}\n` +
+      `${item.description ? `Description: ${item.description}\n` : ""}`
+  )
+  .join("\n\n")}
+
+## Skills
+${skills || "No skills listed"}
+
+## Projects
+${projectItems
+  .map(
+    (item, index) =>
+      `### ${index + 1}. ${item.name}\n` +
+      `Technologies: ${item.technologies}\n` +
+      `${item.description ? `Description: ${item.description}\n` : ""}` +
+      `${item.link ? `[Project Link](${item.link})\n` : ""}`
+  )
+  .join("\n\n")}
+
+## Certificates
+${certificateItems
+  .map(
+    (item, index) =>
+      `### ${index + 1}. ${item.name} (${item.issuer})\n` +
+      `Date: ${item.date}\n` +
+      `${item.description ? `Description: ${item.description}\n` : ""}`
+  )
+  .join("\n\n")}
 `.trim();
     downloadFile(markdownContent, "resume.md", "text/markdown");
   };
