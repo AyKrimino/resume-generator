@@ -168,25 +168,25 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 flex justify-center lg:justify-around px-4 lg:px-0 gap-2 lg:gap-6">
           <button
             type="button"
             onClick={handleDownloadHtmlClick}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+            className="px-3 lg:px-6 py-2 lg:py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 cursor-pointer transition-all delay-150 ease-in-out"
           >
             Download HTML
           </button>
           <button
             type="button"
             onClick={handleDownloadMarkdownClick}
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-2 cursor-pointer"
+            className="px-3 lg:px-6 py-2 lg:py-3 bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 ml-2 cursor-pointer transition-all delay-150 ease-in-out"
           >
             Download Markdown
           </button>
           <button
             type="button"
             onClick={handleDownloadPDFClick}
-            className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 ml-2 cursor-pointer"
+            className="px-3 lg:px-6 py-2 lg:py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-600 ml-2 cursor-pointer transition-all delay-150 ease-in-out"
           >
             Download PDF
           </button>
