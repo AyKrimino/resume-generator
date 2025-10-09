@@ -10,6 +10,7 @@ import SkillsSection from "@/components/SkillsSection";
 import SummarySection from "@/components/SummarySection";
 import apiClient from "@/lib/axios";
 import { buildFullHtml, getStylesheetUrls } from "@/utils/buildHtmlFile";
+import { buildMarkdownFile } from "@/utils/buildMarkdownFile";
 import { downloadFile } from "@/utils/downloadFile";
 import { useRef, useState } from "react";
 
@@ -75,62 +76,19 @@ export default function Home() {
   };
 
   const handleDownloadMarkdownClick = () => {
-    const markdownContent = `
-# ${name || "Resume"}
-
-## Personal Information
-- Email: ${email}
-- Phone: ${phone}
-${linkedinUrl ? `- LinkedIn: [LinkedIn](${linkedinUrl})` : ""}
-${githubUrl ? `- GitHub: [GitHub](${githubUrl})` : ""}
-
-## Summary
-${summary || "No summary provided"}
-
-## Education
-${educationItems
-  .map(
-    (item, index) =>
-      `### ${index + 1}. ${item.degree} in ${item.field} at ${item.school}\n` +
-      `${item.startDate} - ${item.endDate}\n` +
-      `${item.description ? `Description: ${item.description}\n` : ""}`
-  )
-  .join("\n\n")}
-
-## Experience
-${experienceItems
-  .map(
-    (item, index) =>
-      `### ${index + 1}. ${item.title} at ${item.company}\n` +
-      `${item.startDate} - ${item.endDate}\n` +
-      `${item.description ? `Description: ${item.description}\n` : ""}`
-  )
-  .join("\n\n")}
-
-## Skills
-${skills || "No skills listed"}
-
-## Projects
-${projectItems
-  .map(
-    (item, index) =>
-      `### ${index + 1}. ${item.name}\n` +
-      `Technologies: ${item.technologies}\n` +
-      `${item.description ? `Description: ${item.description}\n` : ""}` +
-      `${item.link ? `[Project Link](${item.link})\n` : ""}`
-  )
-  .join("\n\n")}
-
-## Certificates
-${certificateItems
-  .map(
-    (item, index) =>
-      `### ${index + 1}. ${item.name} (${item.issuer})\n` +
-      `Date: ${item.date}\n` +
-      `${item.description ? `Description: ${item.description}\n` : ""}`
-  )
-  .join("\n\n")}
-`.trim();
+    const markdownContent = buildMarkdownFile({
+      name,
+      email,
+      phone,
+      linkedinUrl,
+      githubUrl,
+      summary,
+      educationItems,
+      experienceItems,
+      skills,
+      projectItems,
+      certificateItems,
+    });
     downloadFile(markdownContent, "resume.md", "text/markdown");
   };
 
