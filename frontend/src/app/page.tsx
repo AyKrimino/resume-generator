@@ -113,11 +113,8 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-gray-50 py-2 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[95%] mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800">
-          Resume Generator
-        </h1>
         <div className="flex flex-col lg:flex-row gap-8">
           <form className="flex-[1] w-full lg:w-1/2 p-2 sm:p-4 space-y-6">
             <PersonalInformationsSection
