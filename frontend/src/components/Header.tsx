@@ -1,4 +1,14 @@
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const Header = () => {
   return (
@@ -24,9 +34,62 @@ const Header = () => {
         </nav>
 
         <div className="md:hidden">
-          <button aria-label="Open menu" className="p-2 rounded-md">
-            ☰
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                aria-label="Open menu"
+                className="p-2 rounded-md cursor-pointer"
+              >
+                ☰
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuContent
+                sideOffset={8}
+                align="end"
+                className="w-44 rounded-md bg-white border shadow-lg py-1 z-50 focus:outline-none"
+              >
+                <DropdownMenuItem>
+                  <Link
+                    href="#features"
+                    className="block px-3 py-2 text-sm hover:bg-gray-100 focus:bg-gray-100"
+                  >
+                    Features
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="#templates"
+                    className="block px-3 py-2 text-sm hover:bg-gray-100 focus:bg-gray-100"
+                  >
+                    Templates
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="#about"
+                    className="block px-3 py-2 text-sm hover:bg-gray-100 focus:bg-gray-100"
+                  >
+                    About
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuSeparator className="my-2" />
+
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/login"
+                    className="block px-3 py-2 text-sm rounded-sm hover:bg-gray-100 focus:bg-gray-100"
+                  >
+                    Sign in
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenuPortal>
+          </DropdownMenu>
         </div>
       </div>
     </header>
