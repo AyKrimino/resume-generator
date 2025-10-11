@@ -1,30 +1,18 @@
 import { ResumePreviewProps } from "@/types/resume";
 
-const DefaultTemplate = ({
-  name,
-  email,
-  phone,
-  linkedinUrl,
-  githubUrl,
-  summary,
-  educationItems,
-  experienceItems,
-  skills,
-  projectItems,
-  certificateItems,
-}: ResumePreviewProps) => {
+const DefaultTemplate = (props: ResumePreviewProps) => {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 mx-auto">
       <header className="mb-8 text-center sm:text-left">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
-          {name}
+          {props.name}
         </h1>
         <div className="flex flex-wrap justify-center sm:justify-start gap-4 mt-2">
-          <p className="text-gray-700">{email}</p>
-          <p className="text-gray-700">{phone}</p>
-          {linkedinUrl && (
+          <p className="text-gray-700">{props.email}</p>
+          <p className="text-gray-700">{props.phone}</p>
+          {props.linkedinUrl && (
             <a
-              href={linkedinUrl}
+              href={props.linkedinUrl}
               className="text-blue-600 hover:text-blue-800 hover:underline transition-all delay-150 ease-in-out"
               rel="noopener noreferrer"
               target="_blank"
@@ -32,9 +20,9 @@ const DefaultTemplate = ({
               LinkedIn
             </a>
           )}
-          {githubUrl && (
+          {props.githubUrl && (
             <a
-              href={githubUrl}
+              href={props.githubUrl}
               className="text-blue-600 hover:text-blue-800 hover:underline transition-all delay-150 ease-in-out"
               rel="noopener noreferrer"
               target="_blank"
@@ -45,21 +33,21 @@ const DefaultTemplate = ({
         </div>
       </header>
 
-      {summary && (
+      {props.summary && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
             Professional Summary
           </h2>
-          <p className="text-gray-700 leading-relaxed">{summary}</p>
+          <p className="text-gray-700 leading-relaxed">{props.summary}</p>
         </section>
       )}
 
-      {educationItems.length > 0 && (
+      {props.educationItems?.length > 0 && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
             Education
           </h2>
-          {educationItems.map((item, index) => (
+          {props.educationItems.map((item, index) => (
             <div key={index} className="mb-6 last:mb-0">
               <h3 className="text-xl font-medium text-gray-900">
                 {item.degree} in {item.field}
@@ -76,12 +64,12 @@ const DefaultTemplate = ({
         </section>
       )}
 
-      {experienceItems.length > 0 && (
+      {props.experienceItems?.length > 0 && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
             Work Experience
           </h2>
-          {experienceItems.map((item, index) => (
+          {props.experienceItems.map((item, index) => (
             <div key={index} className="mb-6 last:mb-0">
               <h3 className="text-xl font-medium text-gray-900">
                 {item.title}
@@ -98,13 +86,13 @@ const DefaultTemplate = ({
         </section>
       )}
 
-      {skills && (
+      {props.skills && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
             Skills
           </h2>
           <div className="flex flex-wrap gap-2">
-            {skills.split(",").map((skill, index) => (
+            {props.skills.split(",").map((skill, index) => (
               <span
                 key={index}
                 className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
@@ -116,12 +104,12 @@ const DefaultTemplate = ({
         </section>
       )}
 
-      {projectItems.length > 0 && (
+      {props.projectItems?.length > 0 && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
             Projects
           </h2>
-          {projectItems.map((item, index) => (
+          {props.projectItems.map((item, index) => (
             <div key={index} className="mb-6 last:mb-0">
               <h3 className="text-xl font-medium text-gray-900">{item.name}</h3>
               <p className="text-gray-700">{item.description}</p>
@@ -147,12 +135,12 @@ const DefaultTemplate = ({
         </section>
       )}
 
-      {certificateItems.length > 0 && (
+      {props.certificateItems?.length > 0 && (
         <section>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
             Certifications
           </h2>
-          {certificateItems.map((item, index) => {
+          {props.certificateItems.map((item, index) => {
             if (item.name)
               return (
                 <div key={index} className="mb-6 last:mb-0">

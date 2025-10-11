@@ -8,6 +8,7 @@ import ProjectSection from "@/components/ProjectsSection";
 import ResumePreview from "@/components/ResumePreview";
 import SkillsSection from "@/components/SkillsSection";
 import SummarySection from "@/components/SummarySection";
+import { dummyResume } from "@/data/dummyResume";
 import apiClient from "@/lib/axios";
 import { buildFullHtml, getStylesheetUrls } from "@/utils/buildHtmlFile";
 import { buildMarkdownFile } from "@/utils/buildMarkdownFile";
@@ -15,54 +16,29 @@ import { downloadFile } from "@/utils/downloadFile";
 import { useRef, useState } from "react";
 
 export default function Home() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [linkedinUrl, setLinkedinUrl] = useState("");
-  const [githubUrl, setGithubUrl] = useState("");
+  const [name, setName] = useState(dummyResume.name);
+  const [email, setEmail] = useState(dummyResume.email);
+  const [phone, setPhone] = useState(dummyResume.phone);
+  const [linkedinUrl, setLinkedinUrl] = useState(dummyResume.linkedinUrl);
+  const [githubUrl, setGithubUrl] = useState(dummyResume.githubUrl);
 
-  const [summary, setSummary] = useState("");
+  const [summary, setSummary] = useState(dummyResume.summary);
 
-  const [educationItems, setEducationItems] = useState([
-    {
-      school: "",
-      degree: "",
-      field: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-    },
-  ]);
+  const [educationItems, setEducationItems] = useState(
+    dummyResume.educationItems
+  );
 
-  const [experienceItems, setExperienceItems] = useState([
-    {
-      company: "",
-      title: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-    },
-  ]);
+  const [experienceItems, setExperienceItems] = useState(
+    dummyResume.experienceItems
+  );
 
-  const [skills, setSkills] = useState("");
+  const [skills, setSkills] = useState(dummyResume.skills);
 
-  const [projectItems, setProjectItems] = useState([
-    {
-      name: "",
-      description: "",
-      technologies: "",
-      link: "",
-    },
-  ]);
+  const [projectItems, setProjectItems] = useState(dummyResume.projectItems);
 
-  const [certificateItems, setCertificateItems] = useState([
-    {
-      name: "",
-      issuer: "",
-      date: "",
-      description: "",
-    },
-  ]);
+  const [certificateItems, setCertificateItems] = useState(
+    dummyResume.certificateItems
+  );
 
   const previewRef = useRef<HTMLDivElement>(null);
 
