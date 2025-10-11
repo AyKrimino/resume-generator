@@ -17,10 +17,12 @@ import { useRef, useState } from "react";
 
 export default function Home() {
   const [name, setName] = useState(dummyResume.name);
+  const [headline, setHeadline] = useState(dummyResume.headline);
   const [email, setEmail] = useState(dummyResume.email);
   const [phone, setPhone] = useState(dummyResume.phone);
   const [linkedinUrl, setLinkedinUrl] = useState(dummyResume.linkedinUrl);
   const [githubUrl, setGithubUrl] = useState(dummyResume.githubUrl);
+  const [location, setLocation] = useState(dummyResume.location);
 
   const [summary, setSummary] = useState(dummyResume.summary);
 
@@ -95,15 +97,19 @@ export default function Home() {
           <form className="flex-[1] w-full lg:w-1/2 p-2 sm:p-4 space-y-6">
             <PersonalInformationsSection
               name={name}
+              headline={headline}
               email={email}
               phone={phone}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
+              location={location}
               setName={setName}
+              setHeadline={setHeadline}
               setEmail={setEmail}
               setPhone={setPhone}
               setLinkedinUrl={setLinkedinUrl}
               setGithubUrl={setGithubUrl}
+              setLocation={setLocation}
             />
             <SummarySection summary={summary} setSummary={setSummary} />
             <EducationSection
@@ -130,10 +136,12 @@ export default function Home() {
           >
             <ResumePreview
               name={name}
+              headline={headline}
               email={email}
               phone={phone}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
+              location={location}
               summary={summary}
               educationItems={educationItems}
               experienceItems={experienceItems}

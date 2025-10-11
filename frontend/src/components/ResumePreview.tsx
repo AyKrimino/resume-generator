@@ -1,8 +1,8 @@
-import DefaultTemplate from "@/app/templates/react/DefaultTemplate";
+import ClassicTemplate from "@/app/templates/react/ClassicTemplate";
 import { ResumePreviewProps } from "@/types/resume";
 
 const ResumePreview = (props: ResumePreviewProps) => {
-  return <DefaultTemplate {...props} />;
+  return <ClassicTemplate {...props} />;
 };
 
 export default ResumePreview;
