@@ -1,9 +1,23 @@
 import classicTemplate from "@/app/templates/react/ClassicTemplate";
+import DefaultTemplate from "@/app/templates/react/DefaultTemplate";
 import MinimalTemplate from "@/app/templates/react/MinimalTemplate";
 import ModernTemplate from "@/app/templates/react/ModernTemplate";
 import { TemplateMeta } from "@/types/templates";
 
 export const templates: TemplateMeta[] = [
+  {
+    slug: "default",
+    name: "Default Template",
+    description: "This is the default template.",
+    author: "Ayoub Krimi",
+    authorWebsite: "https://github.com/AyKrimino",
+    stylesheetPath: "/templates/styles/default-template.css",
+    previewPath: "/templates/previews/default-template-thumbnail.png",
+    component: DefaultTemplate,
+    pageSize: "A4",
+    isDefault: true,
+    tags: ["classic", "one-column", "has-colors", "no-profile-picture"],
+  },
   {
     slug: "classic",
     name: "Classic Template",
@@ -15,7 +29,7 @@ export const templates: TemplateMeta[] = [
     previewPath: "/templates/previews/classic-template-thumbnail.png",
     component: classicTemplate,
     pageSize: "A4",
-    isDefault: true,
+    isDefault: false,
     tags: ["classic", "one-column", "no-colors", "no-profile-picture"],
   },
   {
