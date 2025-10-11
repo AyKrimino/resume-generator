@@ -103,7 +103,7 @@ const PersonalInformationsSection = ({
             />
           </div>
         )}
-        {currentTemplate.hasAttribute?.hasGithubUrl && (
+        {currentTemplate.hasAttribute?.githubUrl && (
           <div className="">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Github URL
