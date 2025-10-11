@@ -21,7 +21,7 @@ const Header = () => {
           <Link href="#features" className="hover:underline">
             Features
           </Link>
-          <Link href="#templates" className="hover:underline">
+          <Link href="/templates" className="hover:underline">
             Templates
           </Link>
           <Link href="#about" className="hover:underline">
@@ -60,7 +60,7 @@ const Header = () => {
 
                 <DropdownMenuItem asChild>
                   <Link
-                    href="#templates"
+                    href="/templates"
                     className="block px-3 py-2 text-sm hover:bg-gray-100 focus:bg-gray-100"
                   >
                     Templates
