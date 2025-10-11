@@ -1,4 +1,4 @@
-const classNameicTemplate = () => {
+const classicTemplate = () => {
   return (
     <div className="bg-gray-100 text-gray-800">
       <div className="container mx-auto py-10 px-5">
@@ -49,7 +49,7 @@ const classNameicTemplate = () => {
                   </li>
                   <li>
                     Developed and maintained critical components of the
-                    company&apos;s flagship product, resulting in increased
+                    company's flagship product, resulting in increased
                     reliability and performance.
                   </li>
                   <li>
@@ -106,4 +106,4 @@ const classNameicTemplate = () => {
   );
 };
 
-export default classNameicTemplate;
+export default classicTemplate;
