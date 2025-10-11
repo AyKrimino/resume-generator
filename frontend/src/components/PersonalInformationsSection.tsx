@@ -1,9 +1,12 @@
+import { useTemplate } from "@/context/TemplateContext";
 import { PersonalInformationsSectionProps } from "@/types/resume";
 
 const PersonalInformationsSection = ({
   name,
   email,
   phone,
+  headline,
+  location,
   linkedinUrl,
   githubUrl,
   setName,
@@ -11,7 +14,11 @@ const PersonalInformationsSection = ({
   setPhone,
   setLinkedinUrl,
   setGithubUrl,
+  setHeadline,
+  setLocation,
 }: PersonalInformationsSectionProps) => {
+  const { currentTemplate } = useTemplate();
+
   return (
     <section className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
       <h1 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">
@@ -54,30 +61,62 @@ const PersonalInformationsSection = ({
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        <div className="">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Linkedin URL
-          </label>
-          <input
-            type="url"
-            placeholder="https://linkedin.com/in/yourprofile"
-            className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
-            value={linkedinUrl}
-            onChange={(e) => setLinkedinUrl(e.target.value)}
-          />
-        </div>
-        <div className="">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Github URL
-          </label>
-          <input
-            type="url"
-            placeholder="https://github.com/yourusername"
-            className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
-            value={githubUrl}
-            onChange={(e) => setGithubUrl(e.target.value)}
-          />
-        </div>
+        {currentTemplate.component.Meta?.hasHeadline && (
+          <div className="">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Headline
+            </label>
+            <input
+              type="tel"
+              placeholder="Full-stack Software Engineer"
+              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+              value={headline}
+              onChange={(e) => setHeadline(e.target.value)}
+            />
+          </div>
+        )}
+        {currentTemplate.component.Meta?.hasLocation && (
+          <div className="">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Location
+            </label>
+            <input
+              type="tel"
+              placeholder="San Francisco, CA"
+              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
+        )}
+        {currentTemplate.component.Meta?.hasLinkedinUrl && (
+          <div className="">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Linkedin URL
+            </label>
+            <input
+              type="url"
+              placeholder="https://linkedin.com/in/yourprofile"
+              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+              value={linkedinUrl}
+              onChange={(e) => setLinkedinUrl(e.target.value)}
+            />
+          </div>
+        )}
+        {currentTemplate.component.Meta?.hasGithubUrl && (
+          <div className="">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Github URL
+            </label>
+            <input
+              type="url"
+              placeholder="https://github.com/yourusername"
+              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+              value={githubUrl}
+              onChange={(e) => setGithubUrl(e.target.value)}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

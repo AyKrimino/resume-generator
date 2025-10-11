@@ -1,7 +1,6 @@
 import { ResumePreviewProps } from "@/types/resume";
 
 const ClassicTemplate = (props: ResumePreviewProps) => {
-  console.log(props);
   return (
     <div className="">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
@@ -126,6 +125,13 @@ const ClassicTemplate = (props: ResumePreviewProps) => {
       </div>
     </div>
   );
+};
+
+ClassicTemplate.Meta = {
+  hasLocation: true,
+  hasHeadline: true,
+  hasLinkedinUrl: false,
+  hasGithubUrl: false,
 };
 
 export default ClassicTemplate;

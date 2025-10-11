@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,10 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useTemplate } from "@/context/TemplateContext";
 import { templates } from "@/data/templates";
 import Link from "next/link";
 
 export default function Templates() {
+  const { setCurrentTemplateBySlug } = useTemplate();
   return (
     <div className="flex flex-col md:flex-row items-center md:items-start md:justify-center flex-wrap gap-6 md:gap-8 py-8 px-4">
       {templates.map((template, index) => (
@@ -46,10 +50,11 @@ export default function Templates() {
                 className="text-blue-600 hover:text-blue-800 p-0"
               >
                 <Link
-                  href={`/templates/${template.slug}`}
+                  onClick={() => setCurrentTemplateBySlug(template.slug)}
+                  href="/"
                   className="font-medium"
                 >
-                  View Template
+                  Use This Template
                 </Link>
               </Button>
             </CardAction>
