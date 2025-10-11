@@ -17,6 +17,12 @@ export const templates: TemplateMeta[] = [
     pageSize: "A4",
     isDefault: true,
     tags: ["classic", "one-column", "has-colors", "no-profile-picture"],
+    hasAttribute: {
+      headline: false,
+      location: false,
+      linkedinUrl: true,
+      githubUrl: true,
+    },
   },
   {
     slug: "classic",
@@ -31,6 +37,12 @@ export const templates: TemplateMeta[] = [
     pageSize: "A4",
     isDefault: false,
     tags: ["classic", "one-column", "no-colors", "no-profile-picture"],
+    hasAttribute: {
+      headline: true,
+      location: true,
+      linkedinUrl: false,
+      githubUrl: false,
+    },
   },
   {
     slug: "minimal",
@@ -45,6 +57,7 @@ export const templates: TemplateMeta[] = [
     pageSize: "A4",
     isDefault: false,
     tags: ["minimal", "one-column", "has-colors", "has-profile-picture"],
+    hasAttribute: {},
   },
   {
     slug: "modern",
@@ -59,5 +72,6 @@ export const templates: TemplateMeta[] = [
     pageSize: "A4",
     isDefault: false,
     tags: ["modern", "two-columns", "has-colors", "has-profile-picture"],
+    hasAttribute: {},
   },
 ];

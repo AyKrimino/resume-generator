@@ -61,7 +61,7 @@ const PersonalInformationsSection = ({
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        {currentTemplate.component.Meta?.hasHeadline && (
+        {currentTemplate.hasAttribute?.headline && (
           <div className="">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Headline
@@ -75,7 +75,7 @@ const PersonalInformationsSection = ({
             />
           </div>
         )}
-        {currentTemplate.component.Meta?.hasLocation && (
+        {currentTemplate.hasAttribute?.location && (
           <div className="">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Location
@@ -89,7 +89,7 @@ const PersonalInformationsSection = ({
             />
           </div>
         )}
-        {currentTemplate.component.Meta?.hasLinkedinUrl && (
+        {currentTemplate.hasAttribute?.linkedinUrl && (
           <div className="">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Linkedin URL
@@ -103,7 +103,7 @@ const PersonalInformationsSection = ({
             />
           </div>
         )}
-        {currentTemplate.component.Meta?.hasGithubUrl && (
+        {currentTemplate.hasAttribute?.hasGithubUrl && (
           <div className="">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Github URL
