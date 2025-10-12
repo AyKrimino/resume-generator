@@ -161,11 +161,4 @@ const DefaultTemplate = (props: ResumePreviewProps) => {
   );
 };
 
-DefaultTemplate.Meta = {
-  hasLocation: false,
-  hasHeadline: false,
-  hasLinkedinUrl: true,
-  hasGithubUrl: true,
-};
-
 export default DefaultTemplate;

@@ -127,11 +127,4 @@ const ClassicTemplate = (props: ResumePreviewProps) => {
   );
 };
 
-ClassicTemplate.Meta = {
-  hasLocation: true,
-  hasHeadline: true,
-  hasLinkedinUrl: false,
-  hasGithubUrl: false,
-};
-
 export default ClassicTemplate;
