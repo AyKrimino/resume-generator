@@ -3,8 +3,10 @@ export const dummyResume = {
   headline: "Full-stack Software Engineer",
   email: "alex.morgan@example.com",
   phone: "+1 (555) 321-9876",
-  linkedinUrl: "https://linkedin.com/in/alex-morgan  ",
-  githubUrl: "https://github.com/alex-morgan  ",
+  linkedinUrl: "https://linkedin.com/in/alex-morgan",
+  githubUrl: "https://github.com/alex-morgan",
+  facebookUrl: "https://www.facebook.com/john.doe",
+  twitterUrl: "https://x.com/username",
   location: "San Francisco, CA",
   summary:
     "Full-stack Software Engineer with 7+ years building scalable web apps and developer tools. Strong background in JavaScript/TypeScript, cloud platforms, and system design. Passionate about clean code, performance, and mentoring teammates.",

@@ -22,6 +22,9 @@ export const templates: TemplateMeta[] = [
       location: false,
       linkedinUrl: true,
       githubUrl: true,
+      facebookUrl: false,
+      twitterUrl: false,
+      email: true,
     },
   },
   {
@@ -42,6 +45,9 @@ export const templates: TemplateMeta[] = [
       location: true,
       linkedinUrl: false,
       githubUrl: false,
+      facebookUrl: false,
+      twitterUrl: false,
+      email: true,
     },
   },
   {
@@ -58,10 +64,13 @@ export const templates: TemplateMeta[] = [
     isDefault: false,
     tags: ["minimal", "one-column", "has-colors", "has-profile-picture"],
     hasAttribute: {
-      headline: false,
+      headline: true,
       location: false,
       linkedinUrl: true,
-      githubUrl: true,
+      githubUrl: false,
+      facebookUrl: false,
+      twitterUrl: false,
+      email: true,
     },
   },
   {
@@ -78,10 +87,13 @@ export const templates: TemplateMeta[] = [
     isDefault: false,
     tags: ["modern", "two-columns", "has-colors", "has-profile-picture"],
     hasAttribute: {
-      headline: false,
+      headline: true,
       location: false,
       linkedinUrl: true,
       githubUrl: true,
+      facebookUrl: true,
+      twitterUrl: true,
+      email: false,
     },
   },
 ];

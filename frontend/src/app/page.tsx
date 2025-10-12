@@ -22,6 +22,8 @@ export default function Home() {
   const [phone, setPhone] = useState(dummyResume.phone);
   const [linkedinUrl, setLinkedinUrl] = useState(dummyResume.linkedinUrl);
   const [githubUrl, setGithubUrl] = useState(dummyResume.githubUrl);
+  const [facebookUrl, setFacebookUrl] = useState(dummyResume.facebookUrl);
+  const [twitterUrl, setTwitterUrl] = useState(dummyResume.twitterUrl);
   const [location, setLocation] = useState(dummyResume.location);
 
   const [summary, setSummary] = useState(dummyResume.summary);
@@ -102,6 +104,8 @@ export default function Home() {
               phone={phone}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
+              facebookUrl={facebookUrl}
+              twitterUrl={twitterUrl}
               location={location}
               setName={setName}
               setHeadline={setHeadline}
@@ -109,6 +113,8 @@ export default function Home() {
               setPhone={setPhone}
               setLinkedinUrl={setLinkedinUrl}
               setGithubUrl={setGithubUrl}
+              setFacebookUrl={setFacebookUrl}
+              setTwitterUrl={setTwitterUrl}
               setLocation={setLocation}
             />
             <SummarySection summary={summary} setSummary={setSummary} />
@@ -141,6 +147,8 @@ export default function Home() {
               phone={phone}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
+              facebookUrl={facebookUrl}
+              twitterUrl={twitterUrl}
               location={location}
               summary={summary}
               educationItems={educationItems}

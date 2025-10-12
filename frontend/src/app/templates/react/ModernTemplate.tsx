@@ -6,6 +6,8 @@ const ModernTemplate = (props: ResumePreviewProps) => {
       ? new Date(dateString).getFullYear().toString()
       : dateString;
   };
+
+  console.log(props);
   return (
     <div className="">
       <div className="border-1 shadow-lg shadow-gray-700 rounded-lg">
@@ -46,7 +48,7 @@ const ModernTemplate = (props: ResumePreviewProps) => {
                         ></path>
                       </svg>
                     </a>
-                    <div className="ml-2 truncate">{props.email}</div>
+                    <div className="ml-2 truncate">{props.linkedinUrl}</div>
                   </div>
                   <div className="flex items-center my-1">
                     <a
@@ -98,7 +100,7 @@ const ModernTemplate = (props: ResumePreviewProps) => {
                         ></path>
                       </svg>
                     </a>
-                    <div>sale galli latur</div>
+                    <div>{props.facebookUrl}</div>
                   </div>
                   <div className="flex items-center my-1">
                     <a
@@ -118,7 +120,7 @@ const ModernTemplate = (props: ResumePreviewProps) => {
                         ></path>
                       </svg>
                     </a>
-                    <div>amitpachange21</div>
+                    <div>{props.twitterUrl}</div>
                   </div>
                 </div>
               </div>

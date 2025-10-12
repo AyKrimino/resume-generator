@@ -44,6 +44,8 @@ export type PersonalInformationsSectionProps = {
   phone: string;
   linkedinUrl: string;
   githubUrl: string;
+  facebookUrl: string;
+  twitterUrl: string;
   location: string;
   setName: (name: string) => void;
   setHeadline: (headline: string) => void;
@@ -52,6 +54,8 @@ export type PersonalInformationsSectionProps = {
   setLinkedinUrl: (linkedinUrl: string) => void;
   setGithubUrl: (githubUrl: string) => void;
   setLocation: (location: string) => void;
+  setFacebookUrl: (facebookUrl: string) => void;
+  setTwitterUrl: (twitterUrl: string) => void;
 };
 
 export type ProjectItem = {
@@ -83,6 +87,8 @@ export type ResumePreviewProps = {
   phone: string;
   linkedinUrl: string;
   githubUrl: string;
+  facebookUrl: string;
+  twitterUrl: string;
   location?: string;
   summary: string;
   educationItems: EducationItem[];
