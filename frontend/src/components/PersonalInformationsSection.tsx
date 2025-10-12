@@ -61,62 +61,54 @@ const PersonalInformationsSection = ({
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        {currentTemplate.hasAttribute?.headline && (
-          <div className="">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Headline
-            </label>
-            <input
-              type="tel"
-              placeholder="Full-stack Software Engineer"
-              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
-              value={headline}
-              onChange={(e) => setHeadline(e.target.value)}
-            />
-          </div>
-        )}
-        {currentTemplate.hasAttribute?.location && (
-          <div className="">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Location
-            </label>
-            <input
-              type="tel"
-              placeholder="San Francisco, CA"
-              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-          </div>
-        )}
-        {currentTemplate.hasAttribute?.linkedinUrl && (
-          <div className="">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Linkedin URL
-            </label>
-            <input
-              type="url"
-              placeholder="https://linkedin.com/in/yourprofile"
-              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
-              value={linkedinUrl}
-              onChange={(e) => setLinkedinUrl(e.target.value)}
-            />
-          </div>
-        )}
-        {currentTemplate.hasAttribute?.githubUrl && (
-          <div className="">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Github URL
-            </label>
-            <input
-              type="url"
-              placeholder="https://github.com/yourusername"
-              className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
-              value={githubUrl}
-              onChange={(e) => setGithubUrl(e.target.value)}
-            />
-          </div>
-        )}
+        <div className="">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Headline
+          </label>
+          <input
+            type="tel"
+            placeholder="Full-stack Software Engineer"
+            className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+            value={headline}
+            onChange={(e) => setHeadline(e.target.value)}
+          />
+        </div>
+        <div className="">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Location
+          </label>
+          <input
+            type="tel"
+            placeholder="San Francisco, CA"
+            className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+        <div className="">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Linkedin URL
+          </label>
+          <input
+            type="url"
+            placeholder="https://linkedin.com/in/yourprofile"
+            className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+            value={linkedinUrl}
+            onChange={(e) => setLinkedinUrl(e.target.value)}
+          />
+        </div>
+        <div className="">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Github URL
+          </label>
+          <input
+            type="url"
+            placeholder="https://github.com/yourusername"
+            className="mb-4 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+            value={githubUrl}
+            onChange={(e) => setGithubUrl(e.target.value)}
+          />
+        </div>
       </div>
     </section>
   );
