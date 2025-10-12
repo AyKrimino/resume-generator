@@ -69,7 +69,7 @@ const ClassicTemplate = (props: ResumePreviewProps) => {
           </div>
 
           <div className="mt-4">
-            <h3 className="text-lg font-semibold">Education</h3>
+            <h3 className="text-lg font-semibold">Projects</h3>
             {props.projectItems?.length > 0 &&
               props.projectItems.map((item, index) => (
                 <div key={index} className="mt-4">
