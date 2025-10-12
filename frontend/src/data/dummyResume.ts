@@ -47,8 +47,34 @@ export const dummyResume = {
         "Implemented frontend features using React and TypeScript, built CI pipelines, and collaborated on UX improvements that increased activation rate by 12%.",
     },
   ],
-  skills:
-    "TypeScript, JavaScript, React, Node.js, Express, Docker, Kubernetes, AWS (Lambda, ECS), PostgreSQL, Redis, GraphQL, CI/CD, TDD",
+  skills: {
+    "Programming Languages": [
+      { name: "TypeScript", level: "90%" },
+      { name: "JavaScript", level: "95%" },
+    ],
+    "Frameworks & Libraries": [
+      { name: "React", level: "85%" },
+      { name: "Node.js", level: "75%" },
+      { name: "Express", level: "70%" },
+    ],
+    "Database Systems": [
+      { name: "PostgreSQL", level: "80%" },
+      { name: "Redis", level: "65%" },
+    ],
+    "Cloud Technologies": [
+      { name: "AWS (Lambda)", level: "75%" },
+      { name: "AWS (ECS)", level: "70%" },
+    ],
+    "DevOps Tools": [
+      { name: "Docker", level: "80%" },
+      { name: "Kubernetes", level: "60%" },
+      { name: "CI/CD", level: "75%" },
+    ],
+    "Other Technologies": [
+      { name: "GraphQL", level: "65%" },
+      { name: "TDD", level: "85%" },
+    ],
+  },
   projectItems: [
     {
       name: "OpenTasks",

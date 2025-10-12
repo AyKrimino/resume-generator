@@ -1,6 +1,14 @@
 import { ResumePreviewProps } from "@/types/resume";
 
 const DefaultTemplate = (props: ResumePreviewProps) => {
+  const skills: string[] = [];
+  Object.entries(props.skills).forEach(([category, skillsArray]) => {
+    if (Array.isArray(skillsArray)) {
+      const names = skillsArray.map((skill: { name: string }) => skill.name);
+      skills.push(...names);
+    }
+  });
+
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 mx-auto">
       <header className="mb-8 text-center sm:text-left">
@@ -92,7 +100,7 @@ const DefaultTemplate = (props: ResumePreviewProps) => {
             Skills
           </h2>
           <div className="flex flex-wrap gap-2">
-            {props.skills.split(",").map((skill, index) => (
+            {skills.map((skill, index) => (
               <span
                 key={index}
                 className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"

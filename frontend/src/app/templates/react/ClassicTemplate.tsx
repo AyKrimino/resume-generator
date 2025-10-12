@@ -98,29 +98,17 @@ const ClassicTemplate = (props: ResumePreviewProps) => {
               ))}
           </div>
 
-          {props.skills && (
-            <div className="mt-4">
-              <h3 className="text-lg font-semibold mb-2">Skills</h3>
-              {props.skills.split(",").map((skill, index) => (
-                <p className="" key={index}>
-                  {skill.trim()}
-                </p>
+          <div className="mt-4">
+            <h3 className="text-lg font-semibold mb-2">Skills</h3>
+            <ul className="list-disc list-inside text-sm">
+              {Object.entries(props.skills).map(([categorie, skillsArray]) => (
+                <li key={categorie}>
+                  {categorie}:{" "}
+                  {skillsArray.map((skill) => skill.name).join(", ")}
+                </li>
               ))}
-            </div>
-          )}
-
-          {/* TODO: add skills by categories */}
-          {/* <div className="mt-4">
-              <h3 className="text-lg font-semibold mb-2">Skills</h3>
-              <ul className="list-disc list-inside text-sm">
-                <li>Programming Languages: Java, Python, JavaScript</li>
-                <li>Frameworks & Libraries: Spring Boot, React, Angular</li>
-                <li>Database Systems: MySQL, PostgreSQL, MongoDB</li>
-                <li>Cloud Technologies: AWS, Azure, Google Cloud Platform</li>
-                <li>Agile Methodologies: Scrum, Kanban</li>
-                <li>DevOps Tools: Docker, Kubernetes, Jenkins</li>
-              </ul>
-            </div> */}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

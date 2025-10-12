@@ -1,5 +1,5 @@
 import "@/app/templates/styles/minimal-template.css";
-import { ResumePreviewProps } from "@/types/resume";
+import { ResumePreviewProps, SkillItem } from "@/types/resume";
 
 const MinimalTemplate = (props: ResumePreviewProps) => {
   const formatDate = (dateString: string): string => {
@@ -10,6 +10,11 @@ const MinimalTemplate = (props: ResumePreviewProps) => {
         })
       : dateString;
   };
+
+  const skills: SkillItem[] = [];
+  Object.entries(props.skills).forEach(([categorie, skillsArray]) => {
+    skills.push(...skillsArray);
+  });
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
@@ -37,30 +42,17 @@ const MinimalTemplate = (props: ResumePreviewProps) => {
       <section className="mt-2">
         <h2 className="section-title text-xl">Skills</h2>
         <div className="space-y-1">
-          <div>
-            <h3 className="font-semibold">HTML & CSS</h3>
-            <div className="skill-bar">
-              <div className="skill-fill" style={{ width: "90px" }}></div>
+          {skills.map((skill, index) => (
+            <div key={index}>
+              <h3 className="font-semibold">{skill.name}</h3>
+              <div className="skill-bar">
+                <div
+                  className="skill-fill"
+                  style={{ width: skill.level }}
+                ></div>
+              </div>
             </div>
-          </div>
-          <div>
-            <h3 className="font-semibold">JavaScript</h3>
-            <div className="skill-bar">
-              <div className="skill-fill" style={{ width: "80%" }}></div>
-            </div>
-          </div>
-          <div>
-            <h3 className="font-semibold">React</h3>
-            <div className="skill-bar">
-              <div className="skill-fill" style={{ width: "85%" }}></div>
-            </div>
-          </div>
-          <div>
-            <h3 className="font-semibold">UI/UX Design</h3>
-            <div className="skill-bar">
-              <div className="skill-fill" style={{ width: "75%" }}></div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 

@@ -37,6 +37,15 @@ export type ExperienceSectionProps = {
   setExperienceItems: (experienceItems: ExperienceItem[]) => void;
 };
 
+export type SkillItem = {
+  name: string;
+  level: string;
+};
+
+export type SkillsByCatgegory = {
+  [category: string]: SkillItem[];
+};
+
 export type PersonalInformationsSectionProps = {
   name: string;
   headline: string;
@@ -93,7 +102,7 @@ export type ResumePreviewProps = {
   summary: string;
   educationItems: EducationItem[];
   experienceItems: ExperienceItem[];
-  skills: string;
+  skills: SkillsByCatgegory;
   projectItems: ProjectItem[];
   certificateItems: CertificateItem[];
 };
