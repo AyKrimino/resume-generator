@@ -25,26 +25,28 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
   const [templatesList] = useState<TemplateMeta[]>(templates);
 
   const [currentTemplate, setCurrentTemplate] = useState<TemplateMeta>(() => {
-    try {
-      const saved =
-        typeof window !== "undefined"
-          ? localStorage.getItem(LOCAL_STORAGE_KEY)
-          : null;
-      if (saved) {
-        const found = templates.find((template) => template.slug === saved);
-        if (found) return found;
-      }
-    } catch (error) {
-      console.log(error);
-    }
     return findDefaultTemplate();
   });
 
   useEffect(() => {
     try {
+      const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (saved) {
+        const found = templates.find((template) => template.slug === saved);
+        if (found) {
+          setCurrentTemplate(found);
+        }
+      }
+    } catch (error) {
+      console.log("template: failed to read localStorage", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
       localStorage.setItem(LOCAL_STORAGE_KEY, currentTemplate.slug);
     } catch (error) {
-      console.log(error);
+      console.log("template: failed to write localStorage", error);
     }
 
     const onStorage = (e: StorageEvent) => {

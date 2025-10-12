@@ -13,5 +13,5 @@ export type TemplateMeta = {
   pageSize: string;
   isDefault: boolean;
   tags: string[];
-  hasAttributes: { [key: string]: boolean };
+  hasAttribute: { [key: string]: boolean };
 };

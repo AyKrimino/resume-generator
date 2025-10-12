@@ -61,6 +61,7 @@ const PersonalInformationsSection = ({
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
+
         <div className="">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Headline
@@ -73,6 +74,7 @@ const PersonalInformationsSection = ({
             onChange={(e) => setHeadline(e.target.value)}
           />
         </div>
+
         <div className="">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Location

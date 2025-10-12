@@ -57,7 +57,12 @@ export const templates: TemplateMeta[] = [
     pageSize: "A4",
     isDefault: false,
     tags: ["minimal", "one-column", "has-colors", "has-profile-picture"],
-    hasAttribute: {},
+    hasAttribute: {
+      headline: false,
+      location: false,
+      linkedinUrl: true,
+      githubUrl: true,
+    },
   },
   {
     slug: "modern",
@@ -72,6 +77,11 @@ export const templates: TemplateMeta[] = [
     pageSize: "A4",
     isDefault: false,
     tags: ["modern", "two-columns", "has-colors", "has-profile-picture"],
-    hasAttribute: {},
+    hasAttribute: {
+      headline: false,
+      location: false,
+      linkedinUrl: true,
+      githubUrl: true,
+    },
   },
 ];
