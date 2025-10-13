@@ -101,12 +101,14 @@ const ClassicTemplate = (props: ResumePreviewProps) => {
           <div className="mt-4">
             <h3 className="text-lg font-semibold mb-2">Skills</h3>
             <ul className="list-disc list-inside text-sm">
-              {Object.entries(props.skills).map(([categorie, skillsArray]) => (
-                <li key={categorie}>
-                  {categorie}:{" "}
-                  {skillsArray.map((skill) => skill.name).join(", ")}
-                </li>
-              ))}
+              {Object.entries(props.skillItems).map(
+                ([categorie, skillsArray]) => (
+                  <li key={categorie}>
+                    {categorie}:{" "}
+                    {skillsArray.map((skill) => skill.name).join(", ")}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </div>

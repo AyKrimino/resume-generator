@@ -12,7 +12,7 @@ const MinimalTemplate = (props: ResumePreviewProps) => {
   };
 
   const skills: SkillItem[] = [];
-  Object.entries(props.skills).forEach(([categorie, skillsArray]) => {
+  Object.entries(props.skillItems).forEach(([categorie, skillsArray]) => {
     skills.push(...skillsArray);
   });
 

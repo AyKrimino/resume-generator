@@ -36,7 +36,7 @@ export default function Home() {
     dummyResume.experienceItems
   );
 
-  const [skills, setSkills] = useState(dummyResume.skills);
+  const [skillItems, setSkillItems] = useState(dummyResume.skills);
 
   const [projectItems, setProjectItems] = useState(dummyResume.projectItems);
 
@@ -126,7 +126,10 @@ export default function Home() {
               experienceItems={experienceItems}
               setExperienceItems={setExperienceItems}
             />
-            <SkillsSection skills={skills} setSkills={setSkills} />
+            <SkillsSection
+              skillItems={skillItems}
+              setSkillItems={setSkillItems}
+            />
             <ProjectSection
               projectItems={projectItems}
               setProjectItems={setProjectItems}
@@ -153,7 +156,7 @@ export default function Home() {
               summary={summary}
               educationItems={educationItems}
               experienceItems={experienceItems}
-              skills={skills}
+              skillItems={skillItems}
               projectItems={projectItems}
               certificateItems={certificateItems}
             />

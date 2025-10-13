@@ -8,7 +8,7 @@ const ModernTemplate = (props: ResumePreviewProps) => {
   };
 
   const skills: string[] = [];
-  Object.entries(props.skills).forEach(([category, skillsArray]) => {
+  Object.entries(props.skillItems).forEach(([category, skillsArray]) => {
     if (Array.isArray(skillsArray)) {
       const names = skillsArray.map((skill: { name: string }) => skill.name);
       skills.push(...names);

@@ -2,7 +2,7 @@ import { ResumePreviewProps } from "@/types/resume";
 
 const DefaultTemplate = (props: ResumePreviewProps) => {
   const skills: string[] = [];
-  Object.entries(props.skills).forEach(([category, skillsArray]) => {
+  Object.entries(props.skillItems).forEach(([category, skillsArray]) => {
     if (Array.isArray(skillsArray)) {
       const names = skillsArray.map((skill: { name: string }) => skill.name);
       skills.push(...names);
@@ -94,7 +94,7 @@ const DefaultTemplate = (props: ResumePreviewProps) => {
         </section>
       )}
 
-      {props.skills && (
+      {props.skillItems && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">
             Skills

@@ -42,7 +42,7 @@ export type SkillItem = {
   level: string;
 };
 
-export type SkillsByCatgegory = {
+export type SkillsByCategory = {
   [category: string]: SkillItem[];
 };
 
@@ -80,8 +80,8 @@ export type ProjectSectionProps = {
 };
 
 export type SkillsSectionProps = {
-  skills: string;
-  setSkills: (skills: string) => void;
+  skillItems: SkillsByCategory;
+  setSkillItems: (skillItems: SkillsByCategory) => void;
 };
 
 export type SummarySectionProps = {
@@ -102,7 +102,7 @@ export type ResumePreviewProps = {
   summary: string;
   educationItems: EducationItem[];
   experienceItems: ExperienceItem[];
-  skills: SkillsByCatgegory;
+  skillItems: SkillsByCategory;
   projectItems: ProjectItem[];
   certificateItems: CertificateItem[];
 };
