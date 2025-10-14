@@ -10,6 +10,7 @@ import SkillsSection from "@/components/SkillsSection";
 import SummarySection from "@/components/SummarySection";
 import { dummyResume } from "@/data/dummyResume";
 import apiClient from "@/lib/axios";
+import { SkillsByCategory, SkillsSectionProps } from "@/types/resume";
 import { buildFullHtml, getStylesheetUrls } from "@/utils/buildHtmlFile";
 import { buildMarkdownFile } from "@/utils/buildMarkdownFile";
 import { downloadFile } from "@/utils/downloadFile";
@@ -36,7 +37,9 @@ export default function Home() {
     dummyResume.experienceItems
   );
 
-  const [skillItems, setSkillItems] = useState(dummyResume.skills);
+  const [skillItems, setSkillItems] = useState<SkillsByCategory>(
+    dummyResume.skills
+  );
 
   const [projectItems, setProjectItems] = useState(dummyResume.projectItems);
 
@@ -65,7 +68,7 @@ export default function Home() {
       summary,
       educationItems,
       experienceItems,
-      skills,
+      skillItems,
       projectItems,
       certificateItems,
     });
