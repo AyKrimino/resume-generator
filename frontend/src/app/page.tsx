@@ -8,6 +8,7 @@ import ProjectSection from "@/components/ProjectsSection";
 import ResumePreview from "@/components/ResumePreview";
 import SkillsSection from "@/components/SkillsSection";
 import SummarySection from "@/components/SummarySection";
+import { dummyResume } from "@/data/dummyResume";
 import apiClient from "@/lib/axios";
 import { buildFullHtml, getStylesheetUrls } from "@/utils/buildHtmlFile";
 import { buildMarkdownFile } from "@/utils/buildMarkdownFile";
@@ -15,54 +16,33 @@ import { downloadFile } from "@/utils/downloadFile";
 import { useRef, useState } from "react";
 
 export default function Home() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [linkedinUrl, setLinkedinUrl] = useState("");
-  const [githubUrl, setGithubUrl] = useState("");
+  const [name, setName] = useState(dummyResume.name);
+  const [headline, setHeadline] = useState(dummyResume.headline);
+  const [email, setEmail] = useState(dummyResume.email);
+  const [phone, setPhone] = useState(dummyResume.phone);
+  const [linkedinUrl, setLinkedinUrl] = useState(dummyResume.linkedinUrl);
+  const [githubUrl, setGithubUrl] = useState(dummyResume.githubUrl);
+  const [facebookUrl, setFacebookUrl] = useState(dummyResume.facebookUrl);
+  const [twitterUrl, setTwitterUrl] = useState(dummyResume.twitterUrl);
+  const [location, setLocation] = useState(dummyResume.location);
 
-  const [summary, setSummary] = useState("");
+  const [summary, setSummary] = useState(dummyResume.summary);
 
-  const [educationItems, setEducationItems] = useState([
-    {
-      school: "",
-      degree: "",
-      field: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-    },
-  ]);
+  const [educationItems, setEducationItems] = useState(
+    dummyResume.educationItems
+  );
 
-  const [experienceItems, setExperienceItems] = useState([
-    {
-      company: "",
-      title: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-    },
-  ]);
+  const [experienceItems, setExperienceItems] = useState(
+    dummyResume.experienceItems
+  );
 
-  const [skills, setSkills] = useState("");
+  const [skillItems, setSkillItems] = useState(dummyResume.skills);
 
-  const [projectItems, setProjectItems] = useState([
-    {
-      name: "",
-      description: "",
-      technologies: "",
-      link: "",
-    },
-  ]);
+  const [projectItems, setProjectItems] = useState(dummyResume.projectItems);
 
-  const [certificateItems, setCertificateItems] = useState([
-    {
-      name: "",
-      issuer: "",
-      date: "",
-      description: "",
-    },
-  ]);
+  const [certificateItems, setCertificateItems] = useState(
+    dummyResume.certificateItems
+  );
 
   const previewRef = useRef<HTMLDivElement>(null);
 
@@ -119,15 +99,23 @@ export default function Home() {
           <form className="flex-[1] w-full lg:w-1/2 p-2 sm:p-4 space-y-6">
             <PersonalInformationsSection
               name={name}
+              headline={headline}
               email={email}
               phone={phone}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
+              facebookUrl={facebookUrl}
+              twitterUrl={twitterUrl}
+              location={location}
               setName={setName}
+              setHeadline={setHeadline}
               setEmail={setEmail}
               setPhone={setPhone}
               setLinkedinUrl={setLinkedinUrl}
               setGithubUrl={setGithubUrl}
+              setFacebookUrl={setFacebookUrl}
+              setTwitterUrl={setTwitterUrl}
+              setLocation={setLocation}
             />
             <SummarySection summary={summary} setSummary={setSummary} />
             <EducationSection
@@ -138,7 +126,10 @@ export default function Home() {
               experienceItems={experienceItems}
               setExperienceItems={setExperienceItems}
             />
-            <SkillsSection skills={skills} setSkills={setSkills} />
+            <SkillsSection
+              skillItems={skillItems}
+              setSkillItems={setSkillItems}
+            />
             <ProjectSection
               projectItems={projectItems}
               setProjectItems={setProjectItems}
@@ -154,14 +145,18 @@ export default function Home() {
           >
             <ResumePreview
               name={name}
+              headline={headline}
               email={email}
               phone={phone}
               linkedinUrl={linkedinUrl}
               githubUrl={githubUrl}
+              facebookUrl={facebookUrl}
+              twitterUrl={twitterUrl}
+              location={location}
               summary={summary}
               educationItems={educationItems}
               experienceItems={experienceItems}
-              skills={skills}
+              skillItems={skillItems}
               projectItems={projectItems}
               certificateItems={certificateItems}
             />

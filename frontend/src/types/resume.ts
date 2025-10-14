@@ -37,17 +37,34 @@ export type ExperienceSectionProps = {
   setExperienceItems: (experienceItems: ExperienceItem[]) => void;
 };
 
+export type SkillItem = {
+  name: string;
+  level: string;
+};
+
+export type SkillsByCategory = {
+  [category: string]: SkillItem[];
+};
+
 export type PersonalInformationsSectionProps = {
   name: string;
+  headline: string;
   email: string;
   phone: string;
   linkedinUrl: string;
   githubUrl: string;
+  facebookUrl: string;
+  twitterUrl: string;
+  location: string;
   setName: (name: string) => void;
+  setHeadline: (headline: string) => void;
   setEmail: (email: string) => void;
   setPhone: (phone: string) => void;
   setLinkedinUrl: (linkedinUrl: string) => void;
   setGithubUrl: (githubUrl: string) => void;
+  setLocation: (location: string) => void;
+  setFacebookUrl: (facebookUrl: string) => void;
+  setTwitterUrl: (twitterUrl: string) => void;
 };
 
 export type ProjectItem = {
@@ -63,8 +80,8 @@ export type ProjectSectionProps = {
 };
 
 export type SkillsSectionProps = {
-  skills: string;
-  setSkills: (skills: string) => void;
+  skillItems: SkillsByCategory;
+  setSkillItems: (skillItems: SkillsByCategory) => void;
 };
 
 export type SummarySectionProps = {
@@ -74,14 +91,18 @@ export type SummarySectionProps = {
 
 export type ResumePreviewProps = {
   name: string;
+  headline?: string;
   email: string;
   phone: string;
   linkedinUrl: string;
   githubUrl: string;
+  facebookUrl: string;
+  twitterUrl: string;
+  location?: string;
   summary: string;
   educationItems: EducationItem[];
   experienceItems: ExperienceItem[];
-  skills: string;
+  skillItems: SkillsByCategory;
   projectItems: ProjectItem[];
   certificateItems: CertificateItem[];
 };
