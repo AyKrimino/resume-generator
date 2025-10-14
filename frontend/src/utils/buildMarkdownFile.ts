@@ -3,6 +3,7 @@ import {
   EducationItem,
   ExperienceItem,
   ProjectItem,
+  SkillsByCategory,
 } from "@/types/resume";
 
 export const buildMarkdownFile = (params: {
@@ -14,7 +15,7 @@ export const buildMarkdownFile = (params: {
   summary: string;
   educationItems: EducationItem[];
   experienceItems: ExperienceItem[];
-  skills: string;
+  skillItems: SkillsByCategory;
   projectItems: ProjectItem[];
   certificateItems: CertificateItem[];
 }): string => {
@@ -27,10 +28,29 @@ export const buildMarkdownFile = (params: {
     summary,
     educationItems,
     experienceItems,
-    skills,
+    skillItems,
     projectItems,
     certificateItems,
   } = params;
+
+  const renderSkillsMarkdown = (skillsObj: SkillsByCategory) => {
+    if (!skillsObj || Object.keys(skillsObj).length === 0)
+      return "No Skills listed.";
+    return Object.entries(skillsObj)
+      .map(([category, items]) => {
+        const itemsMD =
+          items && items.length > 0
+            ? items
+                .map((item) => {
+                  const level = item.level ? ` - ${item.level}` : "";
+                  return `- **${item.name}**${level}`;
+                })
+                .join("\n")
+            : "_No Skills in this category_";
+        return `### ${category}\n\n${itemsMD}`;
+      })
+      .join("\n\n");
+  };
 
   return `
 # ${name || "Resume"}
@@ -65,7 +85,7 @@ ${experienceItems
   .join("\n\n")}
 
 ## Skills
-${skills || "No skills listed"}
+${renderSkillsMarkdown(skillItems)}
 
 ## Projects
 ${projectItems
