@@ -1,6 +1,19 @@
 import { SkillItem, SkillsSectionProps } from "@/types/resume";
+import { useEffect, useState } from "react";
 
 const SkillsSection = ({ skillItems, setSkillItems }: SkillsSectionProps) => {
+  const [categoryNames, setCategoryNames] = useState<{ [key: string]: string }>(
+    {}
+  );
+
+  useEffect(() => {
+    const names: { [key: string]: string } = {};
+    Object.keys(skillItems).forEach((category) => {
+      names[category] = category;
+    });
+    setCategoryNames(names);
+  }, [skillItems]);
+
   const addSkillItem = () => {
     const newCategoryName = `New Category ${
       Object.keys(skillItems).length + 1
@@ -21,14 +34,17 @@ const SkillsSection = ({ skillItems, setSkillItems }: SkillsSectionProps) => {
   };
 
   const updateCategoryName = (oldCategory: string, newCategory: string) => {
-    if (!newCategory.trim()) return;
-    if (oldCategory === newCategory) return;
+    setCategoryNames((prev) => ({ ...prev, [oldCategory]: newCategory }));
+  };
+
+  const commitCategoryNameChange = (oldCategory: string) => {
+    const newCategory = categoryNames[oldCategory].trim();
+    if (!newCategory || oldCategory === newCategory) return;
+
+    if (skillItems[newCategory]) return;
 
     const updatedItems = { ...skillItems };
     const categoryData = updatedItems[oldCategory];
-
-    if (updatedItems[newCategory]) return;
-
     delete updatedItems[oldCategory];
     updatedItems[newCategory] = categoryData;
 
@@ -96,8 +112,9 @@ const SkillsSection = ({ skillItems, setSkillItems }: SkillsSectionProps) => {
               type="text"
               placeholder="JavaScript"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              value={category}
+              value={categoryNames[category] || category}
               onChange={(e) => updateCategoryName(category, e.target.value)}
+              onBlur={() => commitCategoryNameChange(category)}
             />
           </div>
 
